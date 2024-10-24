@@ -82,16 +82,72 @@ const products = [
 
   //Init cart item count
 
-  let cartItenCount = 0;
+  let cartItemCount = 0;
 
   //init product element array
 
   const productElements =[];
 
+  //event listeners for filtering
+  filtersContainer.addEventListener('change',filterProducts);
+  searchInput.addEventListener('input',filterProducts);
+
   //Loop over products and create an element
 
   products.forEach((product)=>{
+    const productElement = createProductElement(product);
+    productElements.push(productElement);
+    productsWrapper.appendChild(productElement);
+  });
+  // function to create product element 
+  function createProductElement(product){
     const productElement = document.createElement('div');
     productElement.className ='item space-y-2';
-    productElement.innerHTML='';
-  });
+    productElement.innerHTML=`
+    <div class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border rounded-xl">
+                <img src="${product.url}" alt="${product.name}" class="w-full h-full object-cover">
+                <button class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0">
+                    Add To Cart
+                </button>
+            </div>
+            <p class="text-xl">${product.name}</p>
+            <strong>$${product.price.toLocaleString()}</strong>
+    `;
+
+    productElement.querySelector('.status').addEventListener('click',updateCart);
+
+
+    return productElement;
+  }
+
+  //add or remove
+
+  function updateCart(e){
+    const statusEl = e.target;
+    
+    if(statusEl.classList.contains('added')){
+        //Remove from cart
+        statusEl.classList.remove('added');
+        statusEl.classList.remove('bg-red-600');
+        statusEl.classList.add('bg-gray-800');
+        statusEl.innerText='Add To Cart';
+
+        cartItemCount-=1;
+    }else{
+        //Add to cart
+        statusEl.classList.add('added');
+        statusEl.innerText='Remove From Cart';
+        statusEl.classList.remove('bg-gray-800');
+        statusEl.classList.add('bg-red-600');
+
+        cartItemCount+=1;
+    }
+    cartCount.innerText=cartItemCount.toString();
+  }
+
+  function filterProducts(){
+    //get search
+    const searchTerm = searchInput.ariaValueMax.trim().toLowerCase();
+    // catagories
+    
+  }
