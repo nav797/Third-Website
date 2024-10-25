@@ -10,6 +10,7 @@ I was excited to dive into JavaScript and enjoyed the process of bringing this p
 <ul>
   <li><strong>Responsive Design: </strong>The website adapts to various screen sizes, ensuring a seamless experience on both mobile and desktop devices.</li>
   <li><strong>Filtering Functionality: </strong>Users can type in the search bar or check catergories to filter products in real time.</li>
+  <li><strong>Cart Functionality: </strong>Includes a cart icon that dynamically displays the number of items currently in the cart, updating as users add or remove products.</li>
 </ul>
 
 <h3>Technologies Used</h3>
