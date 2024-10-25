@@ -147,7 +147,23 @@ const products = [
 
   function filterProducts(){
     //get search
-    const searchTerm = searchInput.ariaValueMax.trim().toLowerCase();
+    const searchTerm = searchInput.value.trim().toLowerCase();
     // catagories
-    
+    const checkedCategories = Array.from(checkboxes).filter((check)=>check.checked).map((check)=>check.id);
+
+    productElements.forEach((productElement,index) => {
+        const product = products[index];
+
+        //check if product matches the serch or checked cataories
+        const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm);
+        const isInCheckedCategory = checkedCategories.length === 0 || checkedCategories.includes(product.type);
+
+        //show or hide products
+        if(matchesSearchTerm && isInCheckedCategory){
+            productElement.classList.remove('hidden');
+        } else {
+            productElement.classList.add('hidden');
+        }
+
+    });
   }
