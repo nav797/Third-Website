@@ -21,3 +21,7 @@ I was excited to dive into JavaScript and enjoyed the process of bringing this p
 </ul>
 
 <h3>Final Product: </h3>
+<img width="1440" alt="Screenshot 2024-10-25 at 5 28 02 PM" src="https://github.com/user-attachments/assets/2e23346d-4d5d-4bcb-9b89-db04a8e487ee">
+<br>
+<br>
+<img width="1440" alt="Screenshot 2024-10-25 at 5 29 47 PM" src="https://github.com/user-attachments/assets/e80cc0f7-7fa9-47c3-a655-3375d6c5e7f8">
